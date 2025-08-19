@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Queues</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gradient-to-r from-teal-200 to-indigo-200 min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-gray-800 text-white px-6 py-4 flex justify-between items-center sticky top-0 shadow-lg">
+    <h1 class="text-xl font-semibold">🏥 Hospital System</h1>
+    <div class="space-x-6">
+      <a href="index.html" class="hover:underline">Add Patient</a>
+      <a href="queues.html" class="hover:underline">Queues</a>
+      <a href="history.html" class="hover:underline">History</a>
+    </div>
+  </nav>
+
+  <!-- Queues -->
+  <div class="p-6 max-w-3xl mx-auto mt-10 bg-white rounded-xl shadow-lg">
+    <h2 class="text-lg font-semibold border-b pb-2 mb-4">Current Queues</h2>
+
+    <h3 class="font-semibold mb-2">🚨 Emergency Queue</h3>
+    <ul id="emergencyQueue" class="space-y-2 max-h-60 overflow-y-auto"></ul>
+
+    <h3 class="font-semibold mt-4 mb-2">👥 Normal Queue</h3>
+    <ul id="normalQueue" class="space-y-2 max-h-60 overflow-y-auto"></ul>
+
+    <button onclick="servePatient()" class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md">
+      Serve Next Patient
+    </button>
+  </div>
+
+  <!-- Search Patients -->
+  <div class="p-6 max-w-3xl mx-auto mt-6 bg-white rounded-xl shadow-lg">
+    <h2 class="text-lg font-semibold border-b pb-2 mb-4">🔍 Search Patient</h2>
+    <input id="searchInput" type="text" placeholder="Enter patient name" class="w-full mb-3 p-2 border rounded-md">
+    <button onclick="searchPatients()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-md">
+      Search
+    </button>
+    <ul id="searchResults" class="mt-4 space-y-2"></ul>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", displayQueues);
+  </script>
+</body>
+</html>
